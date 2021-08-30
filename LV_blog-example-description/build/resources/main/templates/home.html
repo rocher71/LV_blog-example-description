@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<!--스크립트 가져오는거 중복 줄여주는 코드! fragments.html에 다 있음! 여기선 이거 한줄만 ㅊ추가해주면 됨!-->
+<head th:replace="fragments :: head"></head>
+<body>
+
+
+<!--    어드민 롤을 가진 유저만 이걸 볼수 있다는 의미-->
+<!--    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/users}">User</a>-->
+<!--    <a sec:authorize="isAuthenticated()" th:href="@{/posts}">Post</a>-->
+<!--로그인이 돼있으면 이 a태그를 노출하겠다~-->
+
+    <a th:href="@{/users}">User</a>
+    <a th:href="@{/posts}">Post</a>
+
+    <a sec:authorize="!isAuthenticated()" th:href="@{/login}">login</a>
+    <a sec:authorize="!isAuthenticated()" th:href="@{/sign-up}">sign up</a>
+
+<!--로그아웃 기능은 로그인이 된 상태에만 나오도록!-->
+<div sec:authorize="isAuthenticated()">
+    <form action="#" th:action="@{/logout}" method="post">
+        <button type="submit">logout</button>
+    </form>
+</div>
+
+</body>
+</html>

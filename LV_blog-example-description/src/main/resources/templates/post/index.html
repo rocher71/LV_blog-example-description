@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">제목</th>
+                <th scope="col">작성자</th>
+                <th scope="col">수정하기</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="post : ${posts}">
+                <td scope="row"><a th:href="@{/posts/{id}(id = ${post.id})}"><span th:text="${post.id}"></span></a></td>
+                <td><span th:text="${post.title}"></span></td>
+                <td><span th:text="${post.getUser()?.getName()}"></span></td>
+                <td><a th:href="@{/edit-post/{id}(id = ${post.id})}">수정하기</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/new-post}">글 생성하기</a>
+</body>
+</html>

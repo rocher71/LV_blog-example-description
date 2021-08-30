@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+    Post 생성
+
+    <form method="post" th:action="@{/new-post}" th:object="${postForm}">
+        <label for="title">제목 : </label>
+        <input type="text" name="title" id="title" th:field="*{title}">
+        <small th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></small>
+
+        <label for="description">상세 내용 : </label>
+        <input type="text" name="description" id="description" th:field="*{description}">
+        <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></small>
+
+        <button type="submit" name="submit" value="value">생성하기</button>
+    </form>
+</body>
+</html>

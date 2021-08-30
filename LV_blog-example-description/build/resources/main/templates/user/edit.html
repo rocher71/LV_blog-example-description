@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+    유저 수정
+
+    <form method="post" th:action="@{/edit-user/{id}(id = ${userForm.id})}" th:object="${userForm}">
+        <label for="name">이름 : </label>
+        <input type="text" name="name" id="name" th:field="*{name}">
+
+        <label for="type">타입 : </label>
+        <input type="text" name="type" id="type" th:field="*{type}">
+
+        <button type="submit" name="submit" value="value">수정하기</button>
+    </form>
+</body>
+</html>
