@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/login}">
+
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username">
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password">
+
+    <button type="submit">생성하기</button>
+
+<!--    password랑 usersname은 다 우리가 저장하고 있는 정보가 아님, 따라서 user에 추가해줘야함-->
+
+</form>
+</body>
+</html>

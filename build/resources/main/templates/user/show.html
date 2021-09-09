@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+    유저 상세 조회
+
+    ID : <p th:text="${user.id}"></p>
+    이름 : <p th:text="${user.name}"></p>
+    타입 : <p th:text="${user.type}"></p>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">타이틀</th>
+            <th scope="col">디스크립션</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="post : ${user.getPosts()}">
+            <td><span th:text="${post.title}"></span></td>
+            <td><span th:text="${post.description}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

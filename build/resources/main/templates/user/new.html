@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+    유저 생성
+
+    <form method="post" th:action="@{/new-user}" th:object="${userForm}">
+        <label for="name">이름 : </label>
+        <input type="text" name="name" id="name" th:field="*{name}">
+        <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
+
+        <label for="type">타입 : </label>
+        <input type="text" name="type" id="type" th:field="*{type}">
+        <small th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></small>
+
+        <button type="submit" name="submit" value="value">생성하기</button>
+    </form>
+</body>
+</html>
